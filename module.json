@@ -1,6 +1,6 @@
 {
-  "name": "module",
-  "title": "New Module",
+  "name": "FoundryVTT-CharacterVignette",
+  "title": "Character Vignette",
   "description": "",
   "version": "This is auto replaced",
   "library": "false",
@@ -9,25 +9,28 @@
   "compatibleCoreVersion": "0.7.9",
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "KzMz",
+      "url": "https://github.com/KzMz",
+      "discord": "kzmz#9443"
     }
   ],
   "dependencies": [
-
+    {
+      "name": "Foundry3D",
+      "manifest": "https://github.com/KzMz/Foundry3D/releases/download/0.0.2/module.json"
+    }
   ],
   "conflicts": [
     
   ],
   "esmodules": [
-    "/scripts/module.js"
+    "/scripts/main.js"
   ],
   "scripts": [
-    "/scripts/lib/lib.js"
+
   ],
   "styles": [
-    "/styles/module.css"
+
   ],
   "languages": [
     {
