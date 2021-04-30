@@ -4,7 +4,7 @@ export class WebSocketBridge {
     }
 
     connect() {
-        const server = game.settings.get('websocket-bridge', 'server-url');
+        const server = game.settings.get('foundryvtt-characterVignette', 'server-url');
 
         this.webSocket = new WebSocket(server);
         this.webSocket.addEventListener('open', () => {
@@ -27,7 +27,7 @@ export class WebSocketBridge {
     _onMessage(message, listeners) {
         const jsonMessage = JSON.parse(message.data);
 
-        if (jsonMessage.type && listeners[jsonMessage.type])
-            listeners[message.type](message);
+        if (jsonMessage.messageType && listeners[jsonMessage.messageType])
+            listeners[jsonMessage.messageType](jsonMessage);
     }
 }
