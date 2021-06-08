@@ -8,7 +8,7 @@ export class WebSocketBridge {
 
         this.webSocket = new WebSocket(server);
         this.webSocket.addEventListener('open', () => {
-
+            console.log("opened");
         });
         this.webSocket.addEventListener('message', (message) => {
             this._onMessage(message, this._listeners);
