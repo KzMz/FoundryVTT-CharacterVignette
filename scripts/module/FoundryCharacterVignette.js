@@ -106,21 +106,22 @@ export class FoundryCharacterVignette {
                 break;
         }
 
-        pos.scaleX = game.settings.get('foundryvtt-characterVignette', 'scale-x');
-        pos.scaleY = game.settings.get('foundryvtt-characterVignette', 'scale-y');
-        
         return pos;
     }
 
     _showVignetteForPlayer(character_name) {
-        let actor = game.actors.find(actor => character_name.includes(actor.name));
+        let actor = game.actors.find(actor => character_name === actor.name);
         if (!actor) {
             actor = game.user.character;
         }
         if (!actor) return;
 
-        const pos = this._getPositionForVignette();
+        let pos = this._getPositionForVignette();
         const vignette = game.foundry3d.addPlane2D("transparent", "white", pos);
+
+        pos.scaleX = game.settings.get('foundryvtt-characterVignette', 'scale-x');
+        pos.scaleY = game.settings.get('foundryvtt-characterVignette', 'scale-y');
+
         game.foundry3d.addImage2D(actor.img, undefined, pos, vignette);
         game.foundry3d.fadeIn2DElement(vignette, game.settings.get('foundryvtt-characterVignette', 'fadein-speed'));
 
