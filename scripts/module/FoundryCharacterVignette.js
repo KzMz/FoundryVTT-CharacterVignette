@@ -95,7 +95,7 @@ export class FoundryCharacterVignette {
     }
 
     _showVignetteForPlayer(character_name) {
-        let actor = game.actors.find(actor => actor.name === character_name);
+        let actor = game.actors.find(actor => character_name.includes(actor.name));
         if (!actor) {
             actor = game.user.character;
         }
