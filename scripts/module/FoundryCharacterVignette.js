@@ -103,14 +103,14 @@ export class FoundryCharacterVignette {
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 
                 pos.left = "50px";
-                pos.top = "-40px";
+                pos.top = "-10px";
                 break;
             case 3:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 
                 pos.left = "-50px";
-                pos.top = "-40px";
+                pos.top = "-10px";
                 break;
             case 4:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
