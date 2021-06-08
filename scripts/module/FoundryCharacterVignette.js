@@ -30,6 +30,14 @@ export class FoundryCharacterVignette {
                 location.reload();
             }
         });
+        game.settings.register('foundryvtt-characterVignette', 'active', {
+            name: 'Is active?',
+            hint: '',
+            scope: 'world',
+            config: true,
+            type: Boolean,
+            default: true
+        });
         game.settings.register('foundryvtt-characterVignette', 'fadein-speed', {
             name: 'Vignette Fade-in speed',
             hint: '',
@@ -122,6 +130,8 @@ export class FoundryCharacterVignette {
     }
 
     _showVignetteForPlayer(character_name) {
+        if (!game.settings.get('foundryvtt-characterVignette', 'active')) return;
+
         let actor = game.actors.find(actor => character_name.includes(actor.name));
         if (!actor) return;
 
