@@ -46,6 +46,22 @@ export class FoundryCharacterVignette {
             type: Number,
             default: 10
         });
+        game.settings.register('foundryvtt-characterVignette', 'scale-x', {
+            name: 'Vignette Scale X',
+            hint: '',
+            scope: 'world',
+            config: true,
+            type: Number,
+            default: 0.2
+        });
+        game.settings.register('foundryvtt-characterVignette', 'scale-y', {
+            name: 'Vignette Scale Y',
+            hint: '',
+            scope: 'world',
+            config: true,
+            type: Number,
+            default: 0.2
+        });
     }
 
     onReady() {
@@ -91,11 +107,13 @@ export class FoundryCharacterVignette {
                 break;
         }
 
+        pos.width = game.settings.get('foundryvtt-characterVignette', 'scale-x');
+        pos.height = game.settings.get('foundryvtt-characterVignette', 'scale-y');
+
         return pos;
     }
 
     _showVignetteForPlayer(character_name) {
-        console.log(character_name);
         let actor = game.actors.find(actor => character_name.includes(actor.name));
         if (!actor) {
             actor = game.user.character;
