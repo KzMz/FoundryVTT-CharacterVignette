@@ -79,37 +79,37 @@ export class FoundryCharacterVignette {
         });
     }
 
-    _getPositionForVignette() {
+    _getPositionForVignette(name) {
         const pos = game.foundry3d.createUIPosition();
 
-        const numVignettes = this._vignettes.size;
-        switch (numVignettes) {
+        let index = parseInt(name.split('-')) - 2;
+        switch (index) {
             case 0:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 
-                pos.top = "40px";
+                pos.top = "20px";
                 pos.left = "50px";
                 break;
             case 1:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
 
-                pos.top = "40px";
-                pos.left = "-50px";
+                pos.top = "20px";
+                pos.left = "-60px";
                 break;
             case 2:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 
-                pos.left = "50px";
+                pos.left = "20px";
                 pos.top = "-40px";
                 break;
             case 3:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
 
-                pos.left = "-50px";
+                pos.left = "-60px";
                 pos.top = "-40px";
                 break;
             case 4:
@@ -125,7 +125,7 @@ export class FoundryCharacterVignette {
         let actor = game.actors.find(actor => character_name.includes(actor.name));
         if (!actor) return;
 
-        let pos = this._getPositionForVignette();
+        let pos = this._getPositionForVignette(character_name);
         const vignette = game.foundry3d.addPlane2D("transparent", "white", pos);
 
         pos.scaleX = game.settings.get('foundryvtt-characterVignette', 'scale-x');
