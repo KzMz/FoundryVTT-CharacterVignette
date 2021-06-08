@@ -87,7 +87,6 @@ export class FoundryCharacterVignette {
             case 0:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
                 pos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-                console.log(pos);
                 break;
             case 1:
                 pos.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
@@ -107,9 +106,9 @@ export class FoundryCharacterVignette {
                 break;
         }
 
-        pos.width = game.settings.get('foundryvtt-characterVignette', 'scale-x');
-        pos.height = game.settings.get('foundryvtt-characterVignette', 'scale-y');
-
+        pos.scaleX = game.settings.get('foundryvtt-characterVignette', 'scale-x');
+        pos.scaleY = game.settings.get('foundryvtt-characterVignette', 'scale-y');
+        
         return pos;
     }
 
